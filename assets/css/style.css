@@ -356,6 +356,19 @@ body.nav-open .mobile-nav { opacity: 1; visibility: visible; transform: none; tr
 .package-list .icon { width: 18px; height: 18px; color: var(--accent); margin-top: 3px; }
 .package-foot { margin-top: auto; padding-top: 26px; }
 .package-foot .btn { width: 100%; }
+.package-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1.15fr 1fr; background: var(--deep); color: var(--on-dark); border-color: var(--deep); box-shadow: var(--shadow-md); }
+.package-featured .package-media { aspect-ratio: auto; min-height: 100%; }
+.package-featured .package-body { padding: clamp(28px, 3.5vw, 48px); }
+.package-featured h3 { font-size: clamp(1.75rem, 1.35rem + 1.4vw, 2.5rem); line-height: 1.1; margin-top: 14px; color: var(--on-dark); }
+.package-featured .package-intro { margin-top: 12px; color: var(--on-dark-muted); }
+.package-featured .package-list { grid-template-columns: 1fr 1fr; gap: 10px 20px; margin-top: 22px; }
+.package-featured .package-list li { color: var(--on-dark); }
+.package-featured .package-list .icon { color: var(--gold); }
+.package-featured .package-foot .btn { width: auto; background: var(--brand); color: #fff; }
+.package-featured .package-foot .btn:hover { background: var(--accent); }
+.package-kicker { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; color: var(--gold); font-size: 14px; font-weight: 650; }
+.package-kicker .icon { width: 16px; height: 16px; }
+.package-media .chip-featured { background: var(--brand); color: #fff; }
 
 /* About */
 .intro-split { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); align-items: center; }
@@ -597,4 +610,15 @@ a.contact-card:hover { border-color: rgba(23, 38, 29, 0.25); box-shadow: var(--s
   .filters { gap: 6px; }
   .filter-btn { min-height: 42px; padding: 0 14px; font-size: 14px; }
   .wa-float { width: 56px; height: 56px; right: 16px; bottom: 16px; }
+}
+
+@media (max-width: 860px) {
+  .package-featured { grid-template-columns: 1fr; }
+  .package-featured .package-media { aspect-ratio: 16 / 10; min-height: 0; }
+}
+@media (max-width: 520px) {
+  .package-featured .package-list { grid-template-columns: 1fr; }
+  .package-kicker > span[aria-hidden] { display: none; }
+  .package-kicker { row-gap: 2px; }
+  .package-featured .package-foot .btn { width: 100%; }
 }
